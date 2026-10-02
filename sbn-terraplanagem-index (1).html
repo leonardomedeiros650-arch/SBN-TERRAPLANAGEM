@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SBN Terraplanagem — Preparação e nivelamento de terrenos</title>
+<meta name="description" content="Terraplanagem, escavação, aterro, demolição, limpeza de terreno e preparação de vias. Solicite um orçamento em poucos passos, direto no WhatsApp.">
+<meta name="theme-color" content="#121416">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SBN Terraplanagem — Preparação e nivelamento de terrenos">
+<meta property="og:description" content="Terraplanagem, escavação, aterro, demolição, limpeza de terreno e preparação de vias. Solicite um orçamento em poucos passos, direto no WhatsApp.">
+<meta property="og:image" content="https://images.pexels.com/photos/32215946/pexels-photo-32215946.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121416'/%3E%3Cpath d='M10 44h44v6H10z' fill='%23F5B700'/%3E%3Cpath d='M10 40l12-14 9 8 7-6 16 12z' fill='%23F5B700' opacity='.55'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
+<link rel="preload" as="image" href="https://images.pexels.com/photos/32215946/pexels-photo-32215946.jpeg?auto=compress&cs=tinysrgb&w=1600" imagesrcset="https://images.pexels.com/photos/32215946/pexels-photo-32215946.jpeg?auto=compress&cs=tinysrgb&w=900 900w, https://images.pexels.com/photos/32215946/pexels-photo-32215946.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w, https://images.pexels.com/photos/32215946/pexels-photo-32215946.jpeg?auto=compress&cs=tinysrgb&w=2400 2400w" imagesizes="100vw">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "SBN Terraplanagem",
+  "description": "Terraplanagem e preparação de terrenos: terraplanagem, escavação, aterro e nivelamento, limpeza de terreno, demolição, áreas e vias.",
+  "telephone": "+55 11 99816-1480",
+  "sameAs": ["https://www.instagram.com/sbn_terraplanagem/"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Serviços",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Terraplanagem"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Escavação"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Aterro e nivelamento"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Limpeza de terreno"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Demolição"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Áreas e vias"}}
+    ]
+  }
+}
+</script>
+
+<style>
+/* Layout: canteiro de obras — faixas escuras (asfalto) e claras (concreto) alternadas; uma única cena encenada (bruto → pronta) com perfil de terreno que se nivela na rolagem. */
+:root{
+  --asfalto:#121416;      /* fundo escuro */
+  --grafite:#1C1F23;      /* superfície escura */
+  --grafite-2:#272B30;
+  --concreto:#EBECE8;     /* fundo claro */
+  --papel:#F8F8F6;        /* superfície clara */
+  --tinta:#15171A;        /* texto escuro */
+  --tinta-2:#4A4F55;      /* texto secundário em claro */
+  --nevoa:#B9BEC3;        /* texto secundário em escuro */
+  --amarelo:#F5B700;      /* amarelo-máquina (acento) */
+  --amarelo-2:#FFC933;
+  --terra:#A24B2A;        /* terra vermelha (secundária) */
+  --linha-esc:rgba(255,255,255,.12);
+  --linha-clr:rgba(21,23,26,.12);
+  --whats:#1FAF54;
+
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  --gutter:clamp(20px,4vw,48px);
+  --max:1240px;
+  --header-h:72px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --radius:6px;
+  color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--concreto);color:var(--tinta);font-family:var(--f-body);font-size:1rem;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+[hidden]{display:none!important}
+section[id],[id].anchor{scroll-margin-top:calc(var(--header-h) + 8px)}
+:focus-visible{outline:2px solid var(--amarelo);outline-offset:3px;border-radius:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--amarelo);color:var(--tinta);padding:10px 16px;font-weight:700;border-radius:4px;text-decoration:none}
+.skip:focus{top:12px}
+
+.wrap{width:100%;max-width:calc(var(--max) + 2*var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ---------- Tipografia ---------- */
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.015em}
+h1{font-size:clamp(2.6rem,6.2vw + .4rem,5.6rem);line-height:.95;font-weight:850;font-stretch:112%}
+h2{font-size:clamp(2rem,3.6vw + .6rem,3.6rem);line-height:1;font-weight:820;font-stretch:108%}
+h3{font-size:clamp(1.25rem,1vw + 1rem,1.6rem);line-height:1.15;font-weight:760;font-stretch:104%}
+p{margin:0}
+.lead{font-size:clamp(1.05rem,.4vw + 1rem,1.22rem);line-height:1.6;max-width:56ch}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--terra)}
+.eyebrow::before{content:"";width:10px;height:10px;background:var(--amarelo);flex:none}
+.dark .eyebrow,.hero .eyebrow,.tf .eyebrow,.contact .eyebrow{color:var(--amarelo)}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
+.sec-head--split{grid-template-columns:1fr;align-items:end}
+@media (min-width:900px){.sec-head--split{grid-template-columns:1.1fr .9fr;gap:48px}}
+.sec-head p{color:var(--tinta-2)}
+.dark .sec-head p{color:var(--nevoa)}
+
+section{position:relative}
+.band{padding-block:clamp(72px,10vw,136px)}
+.dark{background:var(--asfalto);color:#F2F2EF}
+.light{background:var(--concreto)}
+.paper{background:var(--papel)}
+
+/* ---------- Botões ---------- */
+.btn{--bg:var(--amarelo);--fg:var(--tinta);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:var(--radius);background:var(--bg);color:var(--fg);font-family:var(--f-display);font-weight:750;font-stretch:105%;font-size:1rem;letter-spacing:.005em;text-decoration:none;border:0;cursor:pointer;overflow:hidden;isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-color .25s}
+.btn svg{width:20px;height:20px;flex:none;transition:transform .3s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.45) 50%,transparent 65%);transform:translateX(-120%)}
+@media (hover:hover){
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(0,0,0,.45)}
+  .btn:hover svg.arrow{transform:translateX(4px)}
+  .btn:hover::after{transform:translateX(120%);transition:transform .7s var(--ease)}
+}
+.btn:active{transform:scale(.97)}
+.btn--ghost{--bg:transparent;--fg:currentColor;box-shadow:inset 0 0 0 1.5px currentColor}
+@media (hover:hover){.btn--ghost:hover{--bg:rgba(255,255,255,.08)}}
+.light .btn--ghost:hover,.paper .btn--ghost:hover{--bg:rgba(0,0,0,.04)}
+.btn--whats{--bg:var(--whats);--fg:#fff}
+.btn--dark{--bg:var(--tinta);--fg:#fff}
+.btn--block{width:100%}
+
+/* ---------- Header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:100;padding-top:env(safe-area-inset-top,0px);color:#fff;transition:background-color .35s var(--ease),box-shadow .35s var(--ease),color .35s}
+.hdr__in{height:var(--header-h);display:flex;align-items:center;gap:24px;transition:height .35s var(--ease)}
+.hdr.is-solid{background:rgba(18,20,22,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 var(--linha-esc)}
+.hdr.is-solid .hdr__in{height:62px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
+.brand__logo{width:44px;height:44px;border-radius:6px;object-fit:cover;background:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.brand__mark{display:none;width:44px;height:44px;border-radius:6px;background:var(--amarelo);color:var(--tinta);font-family:var(--f-display);font-weight:900;font-stretch:120%;font-size:.95rem;align-items:center;justify-content:center;letter-spacing:-.02em}
+.brand.no-logo .brand__logo{display:none}
+.brand.no-logo .brand__mark{display:flex}
+.brand__txt{display:grid;line-height:1}
+.brand__txt b{font-family:var(--f-display);font-weight:850;font-stretch:118%;font-size:1.12rem;letter-spacing:.01em}
+.brand__txt span{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75;margin-top:5px}
+.nav{margin-left:auto;display:none;align-items:center;gap:4px}
+.nav a{position:relative;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.95rem;opacity:.86;transition:opacity .2s}
+.nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--amarelo);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav a:hover,.nav a.is-active{opacity:1}
+.nav a:hover::after,.nav a.is-active::after{transform:scaleX(1)}
+.hdr__act{display:flex;align-items:center;gap:8px;margin-left:auto}
+.icon-btn{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:var(--radius);text-decoration:none;background:transparent;border:0;cursor:pointer;transition:background-color .2s}
+.icon-btn:hover{background:rgba(255,255,255,.1)}
+.icon-btn svg{width:22px;height:22px}
+.hdr .btn{min-height:46px;padding:0 18px;font-size:.95rem}
+.hdr__cta{display:none}
+.burger{display:inline-grid}
+@media (min-width:1000px){
+  .nav{display:flex}
+  .hdr__act{margin-left:8px}
+  .hdr__cta{display:inline-flex}
+  .burger{display:none}
+}
+@media (min-width:560px) and (max-width:999px){.hdr__cta{display:inline-flex}}
+
+/* progresso de leitura */
+.progress{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--amarelo);transform-origin:left;transform:scaleX(0)}
+
+/* menu mobile */
+.mnav{position:fixed;inset:0;z-index:99;background:var(--asfalto);color:#fff;padding:calc(var(--header-h) + env(safe-area-inset-top,0px) + 24px) var(--gutter) calc(32px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:28px;opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s}
+.mnav.is-open{opacity:1;visibility:visible}
+.mnav ol{list-style:none;margin:0;padding:0;display:grid}
+.mnav li{border-bottom:1px solid var(--linha-esc);transform:translateY(16px);opacity:0;transition:transform .5s var(--ease),opacity .5s var(--ease)}
+.mnav.is-open li{transform:none;opacity:1}
+.mnav.is-open li:nth-child(2){transition-delay:.05s}.mnav.is-open li:nth-child(3){transition-delay:.1s}.mnav.is-open li:nth-child(4){transition-delay:.15s}.mnav.is-open li:nth-child(5){transition-delay:.2s}
+.mnav a.mlink{display:flex;align-items:baseline;justify-content:space-between;padding:16px 0;text-decoration:none;font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:clamp(1.8rem,8vw,2.6rem);line-height:1.1}
+.mnav a.mlink small{font-family:var(--f-mono);font-size:.72rem;color:var(--amarelo);letter-spacing:.1em}
+.mnav__foot{margin-top:auto;display:grid;gap:12px}
+body.menu-open{overflow:hidden}
+.burger svg line{transition:transform .35s var(--ease),opacity .2s;transform-origin:center}
+.burger[aria-expanded="true"] .l1{transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] .l2{opacity:0}
+.burger[aria-expanded="true"] .l3{transform:translateY(-5px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:min(100svh,900px);display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:var(--asfalto);overflow:hidden;isolation:isolate}
+.hero__media{position:absolute;inset:0;z-index:-2}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;transform:scale(1.08);transition:transform 2.6s var(--ease)}
+.is-loaded .hero__media img{transform:scale(1)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,rgba(18,20,22,.72) 0%,rgba(18,20,22,.15) 28%,rgba(18,20,22,.25) 52%,rgba(18,20,22,.94) 100%),
+  linear-gradient(90deg,rgba(18,20,22,.7) 0%,rgba(18,20,22,0) 70%)}
+.hero__body{padding-top:calc(var(--header-h) + 64px);padding-bottom:clamp(32px,5vw,56px);display:grid;gap:22px}
+.hero h1 .hl{color:var(--amarelo)}
+.hero .lead{color:#E3E5E2}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.hero__ctas .btn{flex:1 1 220px;max-width:280px}
+@media (max-width:480px){.hero__ctas .btn{max-width:none}}
+.hero__base{border-top:1px solid var(--linha-esc);background:rgba(18,20,22,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.values{display:grid;grid-template-columns:1fr;gap:0}
+.values{grid-template-columns:repeat(3,1fr)!important}
+.values li{display:flex;flex-direction:column;gap:8px;align-items:flex-start;padding:16px 10px 16px 0}
+.values li span{display:none}
+.values b{font-size:.92rem!important}
+.values svg{width:26px;height:26px;color:var(--amarelo);flex:none;margin-top:2px}
+.values b{display:block;font-family:var(--f-display);font-weight:760;font-stretch:106%;font-size:1.05rem}
+.values span{color:var(--nevoa);font-size:.94rem}
+@media (min-width:760px){
+  .values li{flex-direction:row;gap:14px}
+  .values li span{display:block}
+  .values b{font-size:1.05rem!important}
+  .values li{border-bottom:0;border-right:1px solid var(--linha-esc);padding:22px 24px 22px 0}
+  .values li+li{padding-left:24px}
+  .values li:last-child{border-right:0}
+}
+.hero__coord{position:absolute;right:var(--gutter);top:calc(var(--header-h) + 28px);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;color:rgba(255,255,255,.7);text-align:right;display:none}
+@media (min-width:1000px){.hero__coord{display:block}}
+
+/* ---------- Animações de entrada ---------- */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .hero .rv{transition-duration:1s}
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  .hero__media img{transform:none!important;transition:none}
+}
+
+/* ---------- Serviços ---------- */
+.svc-grid{display:grid;grid-template-columns:1fr;border-top:1px solid var(--linha-clr)}
+@media (min-width:640px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+.svc{position:relative;display:grid;grid-template-rows:auto auto 1fr;gap:14px;padding:32px 28px 36px 0;border-bottom:1px solid var(--linha-clr);transition:background-color .35s var(--ease)}
+@media (min-width:640px){
+  .svc{padding:36px 32px 40px}
+  .svc:nth-child(odd){border-right:1px solid var(--linha-clr)}
+}
+@media (min-width:1000px){
+  .svc:nth-child(odd){border-right:0}
+  .svc:not(:nth-child(3n)){border-right:1px solid var(--linha-clr)}
+}
+.svc__top{display:flex;justify-content:space-between;align-items:flex-start}
+.svc__num{font-family:var(--f-mono);font-weight:600;font-size:.8rem;letter-spacing:.1em;color:var(--tinta-2);transition:color .3s}
+.svc__ic{width:56px;height:56px;display:grid;place-items:center;border-radius:var(--radius);background:var(--tinta);color:var(--amarelo);transition:transform .45s var(--ease),background-color .3s,color .3s}
+.svc__ic svg{width:30px;height:30px}
+.svc p{color:var(--tinta-2);max-width:40ch}
+.svc::before{content:"";position:absolute;left:0;top:-1px;height:3px;width:100%;background:var(--amarelo);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+@media (hover:hover){
+  .svc:hover{background:var(--papel)}
+  .svc:hover::before{transform:scaleX(1)}
+  .svc:hover .svc__ic{transform:translateY(-4px) rotate(-4deg);background:var(--amarelo);color:var(--tinta)}
+  .svc:hover .svc__num{color:var(--terra)}
+}
+.svc-foot{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;margin-top:clamp(36px,5vw,56px)}
+.svc-foot p{font-weight:600;max-width:48ch}
+
+/* ---------- Transformação ---------- */
+.tf{background:var(--asfalto);color:#fff}
+.tf__intro{padding-block:clamp(72px,10vw,120px) clamp(28px,4vw,40px)}
+.tf__intro .lead{color:var(--nevoa)}
+.tf__flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:22px;font-family:var(--f-display);font-weight:800;font-stretch:110%;font-size:clamp(1rem,1.2vw + .7rem,1.35rem);letter-spacing:.01em;text-transform:uppercase}
+.tf__flow i{font-style:normal;color:var(--amarelo)}
+.tf__flow span:last-child{color:var(--amarelo)}
+
+/* layout padrão (sem JS / movimento reduzido): etapas empilhadas */
+.tf__stages{display:grid;gap:clamp(16px,2vw,24px);padding-bottom:clamp(72px,10vw,120px)}
+.stage{position:relative;display:grid;border-radius:var(--radius);overflow:hidden;background:var(--grafite);min-height:420px;isolation:isolate}
+.stage__img{position:absolute;inset:0;z-index:-2}
+.stage__img img{width:100%;height:100%;object-fit:cover}
+.stage::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,20,22,.1) 20%,rgba(18,20,22,.92) 100%)}
+.stage__txt{align-self:end;padding:28px;display:grid;gap:10px;max-width:620px}
+.stage__tag{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo)}
+.stage__txt h3{font-size:clamp(1.8rem,3vw + .6rem,3.2rem);font-weight:850;font-stretch:112%}
+.stage__txt p{color:#DADDDA}
+.tf__frame-ui{display:none}
+.tf__note{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;color:rgba(255,255,255,.55)}
+
+/* modo cena (JS + movimento permitido) */
+.tf.is-scene .tf__track{height:calc(var(--n,3) * 100svh)}
+.tf.is-scene .tf__stages{position:sticky;top:0;height:100svh;padding:0;max-width:none;display:block;overflow:hidden}
+.tf.is-scene .stage{position:absolute;inset:0;border-radius:0;min-height:0;opacity:0;transition:opacity .9s var(--ease)}
+.tf.is-scene .stage.is-active{opacity:1}
+.tf.is-scene .stage__img img{transform:scale(1.06);transition:transform 1.6s var(--ease)}
+.tf.is-scene .stage.is-active .stage__img img{transform:scale(1)}
+.tf.is-scene .stage::after{background:linear-gradient(180deg,rgba(18,20,22,.78) 0%,rgba(18,20,22,.2) 30%,rgba(18,20,22,.35) 55%,rgba(18,20,22,.95) 100%)}
+.tf.is-scene .stage__txt{position:absolute;left:0;right:0;bottom:calc(19vh + 40px);margin-inline:auto;width:100%;max-width:calc(var(--max) + 2*var(--gutter));padding:0 var(--gutter)}
+.tf.is-scene .stage__txt>*{transform:translateY(18px);opacity:0;transition:transform .8s var(--ease),opacity .8s var(--ease)}
+.tf.is-scene .stage.is-active .stage__txt>*{transform:none;opacity:1}
+.tf.is-scene .stage.is-active .stage__txt>*:nth-child(2){transition-delay:.08s}
+.tf.is-scene .stage.is-active .stage__txt>*:nth-child(3){transition-delay:.16s}
+.tf.is-scene .tf__frame-ui{display:block;position:absolute;inset:0;pointer-events:none;z-index:3}
+.tf__steps{position:absolute;left:0;right:0;top:calc(var(--header-h) + 18px);margin-inline:auto;width:100%;max-width:calc(var(--max) + 2*var(--gutter));padding:0 var(--gutter)}
+.tf__steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tf__steps li{display:grid;gap:8px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);transition:color .4s}
+.tf__steps li.is-done,.tf__steps li.is-active{color:#fff}
+.tf__steps .bar{height:3px;background:rgba(255,255,255,.18);overflow:hidden;border-radius:2px}
+.tf__steps .bar i{display:block;height:100%;background:var(--amarelo);transform-origin:left;transform:scaleX(0)}
+.tf__profile{position:absolute;left:0;right:0;bottom:0;height:19vh;min-height:110px}
+.tf__profile svg{width:100%;height:100%;display:block}
+.tf__cota{position:absolute;left:max(var(--gutter),calc((100% - var(--max))/2));font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;color:var(--amarelo);transform:translateY(-130%)}
+
+/* etapas do serviço (texto) */
+.steps4{display:grid;grid-template-columns:1fr;gap:0;counter-reset:s}
+@media (min-width:760px){.steps4{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.steps4{grid-template-columns:repeat(4,1fr)}}
+.steps4 li{list-style:none;position:relative;padding:28px 24px 32px 0;border-top:1px solid var(--linha-clr);display:grid;gap:10px}
+@media (min-width:760px){.steps4 li{padding-right:28px}}
+.steps4 li::before{counter-increment:s;content:"Etapa " counter(s,decimal-leading-zero);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terra)}
+.steps4 li::after{content:"";position:absolute;left:0;top:-2px;width:44px;height:3px;background:var(--amarelo);transition:width .6s var(--ease)}
+@media (hover:hover){.steps4 li:hover::after{width:100%}}
+.steps4 p{color:var(--tinta-2)}
+.steps4 ol{margin:0;padding:0}
+
+/* ---------- Frota ---------- */
+.fleet-feature{display:grid;grid-template-columns:1fr;gap:0;background:var(--grafite);border-radius:var(--radius);overflow:hidden}
+@media (min-width:960px){.fleet-feature{grid-template-columns:1.45fr 1fr}}
+.fleet-feature__img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--grafite-2)}
+@media (min-width:960px){.fleet-feature__img{aspect-ratio:auto;min-height:560px}}
+.fleet-feature__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+@media (hover:hover){.fleet-feature:hover .fleet-feature__img img{transform:scale(1.04)}}
+.fleet-feature__body{padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;gap:18px}
+.fleet-feature__body h3{font-size:clamp(2rem,2.6vw + .8rem,3rem);font-weight:850;font-stretch:112%;line-height:1}
+.fleet-feature__body p{color:var(--nevoa)}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:3px;background:var(--amarelo);color:var(--tinta);font-family:var(--f-mono);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.uses{list-style:none;margin:6px 0 0;padding:0;display:grid;border-top:1px solid var(--linha-esc)}
+.uses li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--linha-esc);font-size:.95rem}
+.uses li span:first-child{color:#EDEDEA;font-weight:600}
+.uses li span:last-child{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;color:var(--nevoa);text-transform:uppercase;text-align:right}
+.fleet-feature__body .btn{margin-top:auto;align-self:flex-start}
+
+.fleet-row{margin-top:clamp(16px,2vw,24px);display:grid;gap:clamp(16px,2vw,24px);grid-template-columns:repeat(3,1fr)}
+.fcard{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--grafite);display:flex;flex-direction:column;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.fcard__img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--grafite-2)}
+.fcard__img img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.fcard .badge{position:absolute;left:16px;top:16px;transition:transform .4s var(--ease)}
+.fcard__body{padding:22px 22px 26px;display:grid;gap:8px}
+.fcard__body p{color:var(--nevoa);font-size:.96rem}
+@media (hover:hover){
+  .fcard:hover{transform:translateY(-6px);box-shadow:0 24px 40px -24px rgba(0,0,0,.8)}
+  .fcard:hover .fcard__img img{transform:scale(1.06)}
+  .fcard:hover .badge{transform:translateY(-3px)}
+}
+@media (max-width:859px){
+  .fleet-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);scroll-padding-inline:var(--gutter)}
+  .fleet-row::-webkit-scrollbar{display:none}
+  .fcard{scroll-snap-align:start}
+  .fcard__img{aspect-ratio:4/5}
+}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.dots button{width:28px;height:28px;padding:0;border:0;background:transparent;cursor:pointer;display:grid;place-items:center}
+.dots button::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:background-color .3s,transform .3s}
+.dots button[aria-current="true"]::before{background:var(--amarelo);transform:scale(1.25)}
+@media (min-width:860px){.dots{display:none}}
+
+/* ---------- Na obra + Instagram ---------- */
+.obra-grid{display:grid;gap:clamp(12px,1.6vw,20px);grid-template-columns:1fr}
+@media (min-width:700px){.obra-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}}
+@media (min-width:1000px){.obra-grid{grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:repeat(2,minmax(240px,1fr))}}
+.ph{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;background:#D5D7D3;min-height:260px;cursor:zoom-in;isolation:isolate}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease),opacity .6s}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(18,20,22,.82) 100%);z-index:0}
+.ph figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;color:#fff;font-weight:700;display:grid;gap:4px}
+.ph figcaption small{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo);font-weight:600}
+.ph .zoom{position:absolute;top:14px;right:14px;z-index:1;width:40px;height:40px;border-radius:50%;background:rgba(18,20,22,.6);display:grid;place-items:center;color:#fff;opacity:0;transform:scale(.85);transition:opacity .3s,transform .3s var(--ease)}
+.ph .zoom svg{width:18px;height:18px}
+@media (hover:hover){.ph:hover img{transform:scale(1.05)}.ph:hover .zoom{opacity:1;transform:none}}
+@media (min-width:1000px){.ph--big{grid-row:span 2;min-height:520px}.ig-card{grid-column:span 2;min-height:240px}}
+.ph.is-broken{display:none}
+.ig-card{position:relative;border-radius:var(--radius);background:var(--tinta);color:#fff;padding:28px;display:flex;flex-direction:column;gap:14px;min-height:260px;overflow:hidden;text-decoration:none;isolation:isolate}
+.ig-card::before{content:"";position:absolute;width:320px;height:320px;right:-120px;bottom:-140px;border-radius:50%;background:radial-gradient(circle,rgba(245,183,0,.45),rgba(245,183,0,0) 70%);z-index:-1;transition:transform .8s var(--ease)}
+@media (hover:hover){.ig-card:hover::before{transform:scale(1.25)}}
+.ig-card svg.ig{width:36px;height:36px;color:var(--amarelo)}
+.ig-card b{font-family:var(--f-display);font-weight:850;font-stretch:110%;font-size:clamp(1.4rem,1.2vw + 1rem,1.8rem);line-height:1.1;word-break:break-word}
+.ig-card p{color:var(--nevoa)}
+.ig-card .btn{margin-top:auto;align-self:flex-start}
+
+/* ---------- Contato ---------- */
+.contact{position:relative;color:#fff;background:var(--asfalto);overflow:hidden;isolation:isolate}
+.contact__bg{position:absolute;inset:0;z-index:-2}
+.contact__bg img{width:100%;height:100%;object-fit:cover;opacity:.38}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(18,20,22,.96) 0%,rgba(18,20,22,.86) 45%,rgba(18,20,22,.7) 100%)}
+.contact__grid{display:grid;gap:clamp(40px,5vw,72px);grid-template-columns:1fr;align-items:start}
+@media (min-width:1000px){.contact__grid{grid-template-columns:1fr 1.05fr}}
+.contact__info{display:grid;gap:22px}
+.contact__info .lead{color:#DADDDA}
+.contact__ctas{display:flex;flex-wrap:wrap;gap:12px}
+.phone{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;font-family:var(--f-mono);font-size:.95rem;letter-spacing:.04em}
+.phone b{font-weight:600;color:#fff}
+.copy{border:1px solid var(--linha-esc);background:transparent;color:var(--nevoa);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;min-height:36px;border-radius:4px;cursor:pointer;transition:border-color .2s,color .2s}
+.copy:hover{border-color:var(--amarelo);color:#fff}
+.how{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--linha-esc)}
+.how li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--linha-esc);align-items:start}
+.how li span{font-family:var(--f-mono);font-size:.78rem;color:var(--amarelo);padding-top:2px}
+.how li p{color:#DADDDA}
+
+/* formulário */
+.form{scroll-margin-top:calc(var(--header-h) + 12px);background:var(--papel);color:var(--tinta);border-radius:var(--radius);padding:clamp(22px,3vw,36px);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.form__head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.form__head span{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-2)}
+.fsteps{list-style:none;margin:0 0 24px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.fsteps li{display:grid;gap:8px;font-size:.78rem;font-weight:700;color:#8A8F95;transition:color .3s}
+.fsteps li i{display:block;height:4px;border-radius:2px;background:#DADCD8;overflow:hidden;position:relative}
+.fsteps li i::after{content:"";position:absolute;inset:0;background:var(--amarelo);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.fsteps li.is-done,.fsteps li.is-current{color:var(--tinta)}
+.fsteps li.is-done i::after,.fsteps li.is-current i::after{transform:scaleX(1)}
+@media (max-width:420px){.fsteps li span{font-size:.7rem}}
+.fpanel{display:grid;gap:18px;animation:panelIn .45s var(--ease)}
+.fpanel[data-dir="back"]{animation-name:panelBack}
+@keyframes panelIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+@keyframes panelBack{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fpanel{animation:none}}
+.fpanel h3{font-size:1.5rem}
+.fpanel .sub{color:var(--tinta-2);margin-top:-10px}
+.field{display:grid;gap:7px}
+.field label,.field .lbl{font-weight:700;font-size:.92rem}
+.field label small{font-weight:500;color:var(--tinta-2)}
+.input{width:100%;min-height:52px;padding:12px 14px;border-radius:var(--radius);border:1.5px solid #CFD2CE;background:#fff;color:var(--tinta);font:inherit;font-size:16px;transition:border-color .2s,box-shadow .2s}
+textarea.input{min-height:110px;resize:vertical}
+.input:focus{outline:none;border-color:var(--tinta);box-shadow:0 0 0 4px rgba(245,183,0,.35)}
+.input[aria-invalid="true"]{border-color:#C0392B}
+.err{color:#B0301F;font-size:.85rem;font-weight:600;min-height:0}
+.row2{display:grid;gap:18px}
+@media (min-width:560px){.row2{grid-template-columns:1fr 1fr}}
+.chips{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:480px){.chips{grid-template-columns:1fr 1fr}}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:flex;align-items:center;gap:12px;min-height:56px;padding:12px 14px;border-radius:var(--radius);border:1.5px solid #CFD2CE;background:#fff;font-weight:700;font-size:.95rem;transition:border-color .2s,background-color .2s,transform .2s var(--ease)}
+.chip span::before{content:"";width:20px;height:20px;border-radius:4px;border:1.5px solid #9BA0A5;flex:none;transition:all .2s;background:#fff center/14px no-repeat}
+.chip input:checked+span{border-color:var(--tinta);background:#FFF6D6}
+.chip input:checked+span::before{background-color:var(--tinta);border-color:var(--tinta);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F5B700' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
+.chip input:focus-visible+span{box-shadow:0 0 0 3px var(--amarelo)}
+.chip:active span{transform:scale(.98)}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg .chip span{min-height:46px;padding:10px 14px}
+.seg .chip span::before{display:none}
+.review{display:grid;border-top:1px solid var(--linha-clr)}
+.review div{display:grid;grid-template-columns:minmax(110px,34%) 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--linha-clr);font-size:.95rem}
+.review dt{color:var(--tinta-2);font-weight:600}
+.review dd{margin:0;font-weight:700;min-width:0;overflow-wrap:anywhere}
+.fnav{display:flex;gap:10px;margin-top:8px}
+.fnav .btn{flex:1;white-space:nowrap;padding-inline:16px}
+.fnav .back{flex:0 0 auto;--fg:var(--tinta)}
+.fnote{font-size:.82rem;color:var(--tinta-2);margin-top:4px}
+
+/* ---------- Footer ---------- */
+.ftr{background:#0C0D0F;color:#D9DBD8;padding-block:64px calc(28px + env(safe-area-inset-bottom,0px))}
+.ftr__grid{display:grid;gap:40px;grid-template-columns:1fr}
+@media (min-width:800px){.ftr__grid{grid-template-columns:1.4fr 1fr 1fr}}
+.ftr h4{margin:0 0 14px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo);font-weight:600}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.ftr ul a{display:inline-flex;align-items:center;gap:10px;min-height:40px;text-decoration:none;opacity:.85;transition:opacity .2s,color .2s}
+.ftr ul a:hover{opacity:1;color:#fff}
+.ftr ul svg{width:18px;height:18px}
+.ftr__tag{margin-top:16px;color:#9EA3A8;max-width:34ch}
+.ftr__base{margin-top:48px;padding-top:20px;border-top:1px solid var(--linha-esc);display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;font-size:.85rem;color:#8D9296}
+.ftr__base a{text-decoration:none;color:#D9DBD8;display:inline-flex;align-items:center;gap:6px;min-height:40px}
+.credits{font-size:.75rem;color:#6E7378}
+
+/* ---------- WhatsApp flutuante ---------- */
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:90;width:60px;height:60px;border-radius:50%;background:var(--whats);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.5);text-decoration:none;opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.fab.is-on{opacity:1;transform:none;pointer-events:auto}
+.fab svg{width:30px;height:30px}
+.fab::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--whats);animation:ping 2.4s var(--ease) 3}
+@keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+@media (hover:hover){.fab:hover{transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){.fab::before{animation:none;display:none}}
+
+/* ---------- Lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:150;background:rgba(10,11,12,.94);display:grid;place-items:center;padding:calc(64px + env(safe-area-inset-top,0px)) 16px calc(64px + env(safe-area-inset-bottom,0px));opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.lb.is-open{opacity:1;visibility:visible}
+.lb figure{margin:0;display:grid;gap:12px;justify-items:center;max-width:min(1200px,100%);transform:scale(.96);transition:transform .4s var(--ease)}
+.lb.is-open figure{transform:none}
+.lb img{max-height:calc(100svh - 180px);width:auto;border-radius:4px}
+.lb figcaption{color:#fff;font-weight:700;text-align:center}
+.lb button{position:absolute;width:52px;height:52px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background-color .2s}
+.lb button:hover{background:rgba(255,255,255,.2)}
+.lb button svg{width:24px;height:24px}
+.lb .x{top:calc(12px + env(safe-area-inset-top,0px));right:12px}
+.lb .pv{left:12px;top:50%;transform:translateY(-50%)}
+.lb .nx{right:12px;top:50%;transform:translateY(-50%)}
+
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--tinta);color:#fff;padding:12px 18px;border-radius:6px;font-weight:600;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);z-index:160}
+.toast.is-on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.23 8.24Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- ========== HEADER ========== -->
+<header class="hdr" id="topo">
+  <div class="wrap hdr__in">
+    <a class="brand" href="#inicio" aria-label="SBN Terraplanagem — início">
+      <img class="brand__logo" src="https://sbnterraplanagem.lovable.app/assets/logo-sbn-AhWElN_m.jpg" alt="Logo SBN Terraplanagem" width="44" height="44" onerror="this.closest('.brand').classList.add('no-logo')">
+      <span class="brand__mark" aria-hidden="true">SBN</span>
+      <span class="brand__txt"><b>SBN</b><span>Terraplanagem</span></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#inicio" data-spy="inicio">Início</a>
+      <a href="#servicos" data-spy="servicos">Serviços</a>
+      <a href="#trabalhos" data-spy="trabalhos">Trabalhos</a>
+      <a href="#equipamentos" data-spy="equipamentos">Equipamentos</a>
+      <a href="#contato" data-spy="contato">Contato</a>
+    </nav>
+    <div class="hdr__act">
+      <a class="icon-btn" href="https://www.instagram.com/sbn_terraplanagem/" target="_blank" rel="noopener" aria-label="Instagram da SBN Terraplanagem"><svg><use href="#i-ig"/></svg></a>
+      <a class="btn hdr__cta" href="#contato">Orçamento</a>
+      <button class="icon-btn burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line class="l1" x1="4" y1="7" x2="20" y2="7"/><line class="l2" x1="4" y1="12" x2="20" y2="12"/><line class="l3" x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <span class="progress" aria-hidden="true"></span>
+</header>
+
+<div class="mnav" id="mnav" aria-hidden="true">
+  <ol>
+    <li><a class="mlink" href="#inicio">Início <small>01</small></a></li>
+    <li><a class="mlink" href="#servicos">Serviços <small>02</small></a></li>
+    <li><a class="mlink" href="#trabalhos">Trabalhos <small>03</small></a></li>
+    <li><a class="mlink" href="#equipamentos">Equipamentos <small>04</small></a></li>
+    <li><a class="mlink" href="#contato">Contato <small>05</small></a></li>
+  </ol>
+  <div class="mnav__foot">
+    <a class="btn btn--block" href="#contato">Solicitar orçamento <svg class="arrow"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn--whats btn--block wa-link" href="https://wa.me/5511998161480" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg> Falar no WhatsApp</a>
+    <a class="btn btn--ghost btn--block" href="https://www.instagram.com/sbn_terraplanagem/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg> @sbn_terraplanagem</a>
+  </div>
+</div>
+
+<main id="conteudo">
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="inicio" aria-labelledby="hero-t">
+  <div class="hero__media">
+    <img src="https://images.pexels.com/photos/32215946/pexels-photo-32215946.jpeg?auto=compress&cs=tinysrgb&w=1600"
+         srcset="https://images.pexels.com/photos/32215946/pexels-photo-32215946.jpeg?auto=compress&cs=tinysrgb&w=900 900w, https://images.pexels.com/photos/32215946/pexels-photo-32215946.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w, https://images.pexels.com/photos/32215946/pexels-photo-32215946.jpeg?auto=compress&cs=tinysrgb&w=2400 2400w"
+         sizes="100vw" alt="Vista aérea de escavadeira trabalhando na preparação de um terreno" fetchpriority="high" width="2983" height="1676">
+  </div>
+  <p class="hero__coord" aria-hidden="true">CORTE · ATERRO · NIVELAMENTO<br>COTA DE PROJETO ±0,00 m</p>
+  <div class="wrap hero__body">
+    <span class="eyebrow rv" style="--d:.1s">Terraplanagem &amp; preparação de terrenos</span>
+    <h1 id="hero-t" class="rv" style="--d:.2s">Vamos preparar <span class="hl">o seu terreno?</span></h1>
+    <p class="lead rv" style="--d:.32s">Conte para a SBN Terraplanagem o que você precisa e solicite um atendimento personalizado — em poucos passos, direto no WhatsApp.</p>
+    <div class="hero__ctas rv" style="--d:.44s">
+      <a class="btn" href="#contato">Solicitar atendimento <svg class="arrow"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--ghost" href="#servicos">Ver serviços <svg class="arrow"><use href="#i-down"/></svg></a>
+    </div>
+  </div>
+  <div class="hero__base rv" style="--d:.56s">
+    <ul class="wrap values" style="list-style:none;margin-block:0">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke-linecap="round"/></svg><div><b>Segurança</b><span>Planejamento e cuidado no local.</span></div></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 20h18M5 20V9l7-5 7 5v11"/><path d="M9 20v-6h6v6"/></svg><div><b>Profissionalismo</b><span>Experiência aplicada ao serviço.</span></div></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11 3 15l6 6 4-4"/><path d="m17 13 4-4-6-6-4 4"/><path d="m8 14 3 3 6-6-3-3z"/></svg><div><b>Compromisso</b><span>Soluções para diferentes terrenos.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== SERVIÇOS ========== -->
+<section class="band light" id="servicos" aria-labelledby="svc-t">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow rv">O que fazemos</span>
+        <h2 id="svc-t" class="rv" style="--d:.08s">Tudo para preparar o seu terreno.</h2>
+      </div>
+      <p class="lead rv" style="--d:.16s">Seis frentes de serviço para levar o terreno do estado bruto até a área pronta para a obra começar.</p>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc rv">
+        <div class="svc__top"><span class="svc__ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22 10 12l5 6 4-4 10 8"/><path d="M3 27h26" stroke-dasharray="2 3"/></svg></span><span class="svc__num">01</span></div>
+        <h3>Terraplanagem</h3>
+        <p>Corte e aterro, movimentação e nivelamento do solo para diferentes tipos de projetos.</p>
+      </article>
+      <article class="svc rv" style="--d:.08s">
+        <div class="svc__top"><span class="svc__ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h9l4 4"/><path d="M17 12l6-2 5 6-3 6h-8z"/><path d="M20 22l2-5"/><path d="M4 27h24"/></svg></span><span class="svc__num">02</span></div>
+        <h3>Escavação</h3>
+        <p>Escavações para fundações, estruturas, piscinas, valas e outros projetos.</p>
+      </article>
+      <article class="svc rv" style="--d:.16s">
+        <div class="svc__top"><span class="svc__ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="26" height="8" rx="1.5"/><path d="M13 16h6"/><circle cx="16" cy="16" r="2.2"/><path d="M3 26h26"/></svg></span><span class="svc__num">03</span></div>
+        <h3>Aterro e nivelamento</h3>
+        <p>Correção do terreno e preparação da área para construção.</p>
+      </article>
+      <article class="svc rv">
+        <div class="svc__top"><span class="svc__ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 25c-2-6 1-13 10-17 0 8-3 14-10 17Z"/><path d="M9 25 16 14"/><path d="M20 26h8M23 22h5"/></svg></span><span class="svc__num">04</span></div>
+        <h3>Limpeza de terreno</h3>
+        <p>Remoção de vegetação, entulho e materiais que dificultam o início da obra.</p>
+      </article>
+      <article class="svc rv" style="--d:.08s">
+        <div class="svc__top"><span class="svc__ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 27V7h14v20"/><path d="M4 13h14M4 19h14M11 7v6M8 13v6M14 19v8"/><path d="m22 10 3 3m-1 4 4 1m-6 4 2 3"/></svg></span><span class="svc__num">05</span></div>
+        <h3>Demolição</h3>
+        <p>Demolição manual e mecanizada, com laudo de demolição e ART.</p>
+      </article>
+      <article class="svc rv" style="--d:.16s">
+        <div class="svc__top"><span class="svc__ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4 6 28M21 4l5 24"/><path d="M16 6v3M16 14v4M16 23v5"/></svg></span><span class="svc__num">06</span></div>
+        <h3>Áreas e vias</h3>
+        <p>Preparação do solo para acessos, vias, estacionamentos e áreas de circulação.</p>
+      </article>
+    </div>
+
+    <div class="svc-foot rv">
+      <p>Não sabe qual serviço o seu terreno precisa? Descreva a área e a SBN orienta você.</p>
+      <a class="btn btn--dark" href="#contato">Descrever meu terreno <svg class="arrow"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRANSFORMAÇÃO ========== -->
+<section class="tf" id="trabalhos" aria-labelledby="tf-t">
+  <div class="wrap tf__intro">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="eyebrow rv">Trabalhos realizados</span>
+      <h2 id="tf-t" class="rv" style="--d:.08s">Terreno bruto virando área pronta.</h2>
+      <p class="lead rv" style="--d:.16s">Do mato e do entulho até o solo nivelado: é assim que a SBN leva o terreno para o ponto em que a obra pode começar.</p>
+      <p class="tf__flow rv" style="--d:.24s" aria-label="Terreno bruto, terraplanagem, área pronta"><span>Terreno bruto</span><i aria-hidden="true">→</i><span>Terraplanagem</span><i aria-hidden="true">→</i><span>Área pronta</span></p>
+    </div>
+  </div>
+
+  <div class="tf__track">
+    <div class="wrap tf__stages" id="tfStages">
+      <article class="stage is-active" data-stage="0">
+        <div class="stage__img"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/30387767/pexels-photo-30387767.jpeg?auto=compress&cs=tinysrgb&w=1600" srcset="https://images.pexels.com/photos/30387767/pexels-photo-30387767.jpeg?auto=compress&cs=tinysrgb&w=800 800w, https://images.pexels.com/photos/30387767/pexels-photo-30387767.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w, https://images.pexels.com/photos/30387767/pexels-photo-30387767.jpeg?auto=compress&cs=tinysrgb&w=2400 2400w" sizes="100vw" alt="Escavadeira e caminhão retirando entulho de um terreno" width="6000" height="4000"></div>
+        <div class="stage__txt">
+          <span class="stage__tag">Etapa 1 · Terreno bruto</span>
+          <h3>Terreno bruto</h3>
+          <p>Vegetação, entulho e desníveis. Começa a limpeza: remoção de tudo o que dificulta o início da obra.</p>
+        </div>
+      </article>
+      <article class="stage" data-stage="1">
+        <div class="stage__img"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/31498921/pexels-photo-31498921.jpeg?auto=compress&cs=tinysrgb&w=1600" srcset="https://images.pexels.com/photos/31498921/pexels-photo-31498921.jpeg?auto=compress&cs=tinysrgb&w=800 800w, https://images.pexels.com/photos/31498921/pexels-photo-31498921.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w, https://images.pexels.com/photos/31498921/pexels-photo-31498921.jpeg?auto=compress&cs=tinysrgb&w=2400 2400w" sizes="100vw" alt="Vista aérea de máquinas pesadas escavando e movimentando terra" width="3956" height="2225"></div>
+        <div class="stage__txt">
+          <span class="stage__tag">Etapa 2 · Terraplanagem</span>
+          <h3>Terraplanagem</h3>
+          <p>Corte, aterro, escavação e carregamento. A terra é movimentada até o terreno chegar ao nível do projeto.</p>
+        </div>
+      </article>
+      <article class="stage" data-stage="2">
+        <div class="stage__img"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/29141362/pexels-photo-29141362.jpeg?auto=compress&cs=tinysrgb&w=1600" srcset="https://images.pexels.com/photos/29141362/pexels-photo-29141362.jpeg?auto=compress&cs=tinysrgb&w=800 800w, https://images.pexels.com/photos/29141362/pexels-photo-29141362.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w, https://images.pexels.com/photos/29141362/pexels-photo-29141362.jpeg?auto=compress&cs=tinysrgb&w=2400 2400w" sizes="100vw" alt="Vista aérea de grande área terraplanada e nivelada" width="4000" height="2250"></div>
+        <div class="stage__txt">
+          <span class="stage__tag">Etapa 3 · Área pronta</span>
+          <h3>Área pronta</h3>
+          <p>Solo regularizado e nivelado, pronto para a próxima etapa. A obra pode começar.</p>
+        </div>
+      </article>
+
+      <div class="tf__frame-ui" aria-hidden="true">
+        <div class="tf__steps">
+          <ol>
+            <li class="is-active"><span>Terreno bruto</span><span class="bar"><i></i></span></li>
+            <li><span>Terraplanagem</span><span class="bar"><i></i></span></li>
+            <li><span>Área pronta</span><span class="bar"><i></i></span></li>
+          </ol>
+        </div>
+        <div class="tf__profile">
+          <span class="tf__cota" id="tfCota">COTA ±0,00 m</span>
+          <svg viewBox="0 0 1000 200" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#A24B2A" stop-opacity=".85"/>
+                <stop offset="1" stop-color="#121416" stop-opacity="1"/>
+              </linearGradient>
+            </defs>
+            <line x1="0" y1="110" x2="1000" y2="110" stroke="#F5B700" stroke-width="1.5" stroke-dasharray="6 8" vector-effect="non-scaling-stroke" opacity=".9"/>
+            <path id="tfFill" fill="url(#soil)" d="M0 110 L1000 110 L1000 200 L0 200 Z"/>
+            <path id="tfLine" fill="none" stroke="#F5B700" stroke-width="2.5" vector-effect="non-scaling-stroke" d="M0 110 L1000 110"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="padding-bottom:28px"><p class="tf__note">Imagens ilustrativas das etapas do serviço.</p></div>
+</section>
+
+<!-- etapas detalhadas -->
+<section class="band paper" aria-labelledby="etapas-t" style="padding-block:clamp(64px,8vw,104px)">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow rv">Como o terreno fica pronto</span>
+        <h2 id="etapas-t" class="rv" style="--d:.08s">Cada etapa no seu tempo.</h2>
+      </div>
+      <p class="lead rv" style="--d:.16s">Equipamentos adequados fazem a diferença para executar o serviço com eficiência, segurança e qualidade.</p>
+    </div>
+    <ol class="steps4">
+      <li class="rv"><h3>Limpeza de terreno</h3><p>Remoção de vegetação e entulho para liberar a área da obra.</p></li>
+      <li class="rv" style="--d:.08s"><h3>Escavação e carregamento</h3><p>Escavadeira carregando caminhões para a retirada do material.</p></li>
+      <li class="rv" style="--d:.16s"><h3>Nivelamento do terreno</h3><p>Solo regularizado com motoniveladora, pronto para a próxima etapa.</p></li>
+      <li class="rv" style="--d:.24s"><h3>Área pronta</h3><p>Terreno limpo, nivelado e liberado para a obra começar.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== FROTA ========== -->
+<section class="band dark" id="equipamentos" aria-labelledby="eq-t">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow rv">Nossa frota</span>
+        <h2 id="eq-t" class="rv" style="--d:.08s">Nossa força está nos equipamentos.</h2>
+      </div>
+      <p class="lead rv" style="--d:.16s">Máquina certa para cada frente de serviço: da escavação profunda ao transporte do material.</p>
+    </div>
+
+    <article class="fleet-feature rv">
+      <div class="fleet-feature__img">
+        <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/38760462/pexels-photo-38760462.jpeg?auto=compress&cs=tinysrgb&w=1600" srcset="https://images.pexels.com/photos/38760462/pexels-photo-38760462.jpeg?auto=compress&cs=tinysrgb&w=800 800w, https://images.pexels.com/photos/38760462/pexels-photo-38760462.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w, https://images.pexels.com/photos/38760462/pexels-photo-38760462.jpeg?auto=compress&cs=tinysrgb&w=2400 2400w" sizes="(min-width:960px) 60vw, 100vw" alt="Escavadeira hidráulica trabalhando em terreno de terra vermelha" width="4240" height="2832">
+      </div>
+      <div class="fleet-feature__body">
+        <span class="badge">Precisão</span>
+        <h3>Escavadeira hidráulica</h3>
+        <p>Escavação profunda e movimentação de solo com precisão.</p>
+        <ul class="uses">
+          <li><span>Fundações e estruturas</span><span>Escavação</span></li>
+          <li><span>Valas e piscinas</span><span>Escavação</span></li>
+          <li><span>Corte e aterro</span><span>Movimentação</span></li>
+          <li><span>Carregamento de caminhões</span><span>Retirada</span></li>
+        </ul>
+        <a class="btn" href="#contato">Solicitar escavação <svg class="arrow"><use href="#i-arrow"/></svg></a>
+      </div>
+    </article>
+
+    <div class="fleet-row" id="fleetRow">
+      <article class="fcard rv">
+        <div class="fcard__img"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/416988/pexels-photo-416988.jpeg?auto=compress&cs=tinysrgb&w=900" srcset="https://images.pexels.com/photos/416988/pexels-photo-416988.jpeg?auto=compress&cs=tinysrgb&w=600 600w, https://images.pexels.com/photos/416988/pexels-photo-416988.jpeg?auto=compress&cs=tinysrgb&w=1100 1100w" sizes="(min-width:860px) 33vw, 82vw" alt="Pá carregadeira em canteiro de obras" width="6000" height="4000"><span class="badge">Versatilidade</span></div>
+        <div class="fcard__body"><h3>Pá carregadeira</h3><p>Carregamento de material e apoio em diferentes frentes de serviço.</p></div>
+      </article>
+      <article class="fcard rv" style="--d:.08s">
+        <div class="fcard__img"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/30387772/pexels-photo-30387772.jpeg?auto=compress&cs=tinysrgb&w=900" srcset="https://images.pexels.com/photos/30387772/pexels-photo-30387772.jpeg?auto=compress&cs=tinysrgb&w=600 600w, https://images.pexels.com/photos/30387772/pexels-photo-30387772.jpeg?auto=compress&cs=tinysrgb&w=1100 1100w" sizes="(min-width:860px) 33vw, 82vw" alt="Retroescavadeira e caminhão em obra de preparação de via" width="4000" height="6000"><span class="badge">Agilidade</span></div>
+        <div class="fcard__body"><h3>Caminhão e apoio</h3><p>Transporte, remoção de materiais e suporte para diferentes frentes.</p></div>
+      </article>
+      <article class="fcard rv" style="--d:.16s">
+        <div class="fcard__img"><img loading="lazy" decoding="async" src="https://sbnterraplanagem.lovable.app/assets/ig-equipe-obra-CyKljRei.jpg" alt="Equipe da SBN Terraplanagem em obra" onerror="this.src='https://images.pexels.com/photos/36073765/pexels-photo-36073765.jpeg?auto=compress&cs=tinysrgb&w=900';this.onerror=null"><span class="badge">Equipe</span></div>
+        <div class="fcard__body"><h3>Profissionais em campo</h3><p>Equipe preparada, atenção à segurança e compromisso em cada etapa.</p></div>
+      </article>
+    </div>
+    <div class="dots" id="fleetDots" aria-label="Navegar pelos equipamentos"></div>
+  </div>
+</section>
+
+<!-- ========== NA OBRA + INSTAGRAM ========== -->
+<section class="band light" id="obra" aria-labelledby="obra-t">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow rv">Na obra com a SBN</span>
+        <h2 id="obra-t" class="rv" style="--d:.08s">Máquinas, equipe e trabalho real.</h2>
+      </div>
+      <p class="lead rv" style="--d:.16s">Fotos do dia a dia da SBN em campo. Toque em uma imagem para ver ampliada.</p>
+    </div>
+
+    <div class="obra-grid">
+      <figure class="ph ph--big rv" tabindex="0" role="button" aria-label="Ampliar: Escavação e carregamento">
+        <img loading="lazy" decoding="async" src="https://sbnterraplanagem.lovable.app/assets/ig-escavacao-carregamento-CTHCrpXb.jpg" alt="Escavadeira da SBN carregando caminhões em obra." onerror="this.closest('.ph').classList.add('is-broken')">
+        <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+        <figcaption><small>Destaque</small>Escavação e carregamento</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:.08s" tabindex="0" role="button" aria-label="Ampliar: Equipe em obra">
+        <img loading="lazy" decoding="async" src="https://sbnterraplanagem.lovable.app/assets/ig-operador-escavadeira-tQY0zRzP.jpg" alt="Operador da SBN junto à escavadeira." onerror="this.closest('.ph').classList.add('is-broken')">
+        <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+        <figcaption><small>Equipe</small>Equipe em obra</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:.16s" tabindex="0" role="button" aria-label="Ampliar: Frota em operação">
+        <img loading="lazy" decoding="async" src="https://sbnterraplanagem.lovable.app/assets/ig-frota-caminhoes-YxvwsnaH.jpg" alt="Caminhões em fila para retirada de material." onerror="this.closest('.ph').classList.add('is-broken')">
+        <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+        <figcaption><small>Frota</small>Frota em operação</figcaption>
+      </figure>
+      <a class="ig-card rv" style="--d:.24s" href="https://www.instagram.com/sbn_terraplanagem/" target="_blank" rel="noopener">
+        <svg class="ig"><use href="#i-ig"/></svg>
+        <b>@sbn_<wbr>terraplanagem</b>
+        <p>Veja mais obras e o dia a dia da SBN no Instagram.</p>
+        <span class="btn">Seguir no Instagram <svg class="arrow"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTATO ========== -->
+<section class="band contact" id="contato" aria-labelledby="ct-t">
+  <div class="contact__bg"><img loading="lazy" decoding="async" src="https://images.pexels.com/photos/23910575/pexels-photo-23910575.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" width="2643" height="1982"></div>
+  <div class="wrap contact__grid">
+    <div class="contact__info">
+      <span class="eyebrow rv">Fale agora</span>
+      <h2 id="ct-t" class="rv" style="--d:.08s">Tem um terreno para preparar?</h2>
+      <p class="lead rv" style="--d:.16s">Explique o que você precisa e fale diretamente com a SBN Terraplanagem. Você recebe o retorno pelo WhatsApp.</p>
+      <div class="contact__ctas rv" style="--d:.24s">
+        <a class="btn btn--whats wa-link" href="https://wa.me/5511998161480" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg> Falar no WhatsApp</a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/sbn_terraplanagem/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg> @sbn_terraplanagem</a>
+      </div>
+      <div class="phone rv" style="--d:.3s"><span>WhatsApp</span><b id="phoneTxt">(11) 99816-1480</b><button class="copy" type="button" id="copyPhone">Copiar número</button></div>
+      <ol class="how rv" style="--d:.36s">
+        <li><span>01</span><p>Preencha o formulário em 4 passos rápidos.</p></li>
+        <li><span>02</span><p>A mensagem chega pronta no WhatsApp da SBN.</p></li>
+        <li><span>03</span><p>A SBN retorna o seu contato para combinar o atendimento.</p></li>
+      </ol>
+    </div>
+
+    <form class="form rv" id="quote" style="--d:.12s" novalidate aria-labelledby="form-t">
+      <div class="form__head"><h3 id="form-t" style="font-size:1.15rem">Solicitar atendimento</h3><span id="stepLabel">Etapa 1 de 4</span></div>
+      <ol class="fsteps" aria-hidden="true">
+        <li class="is-current"><i></i><span>Seus dados</span></li>
+        <li><i></i><span>O serviço</span></li>
+        <li><i></i><span>Detalhes</span></li>
+        <li><i></i><span>Conferir</span></li>
+      </ol>
+
+      <div class="fpanel" data-step="0">
+        <h3>Primeiro, seus dados.</h3>
+        <p class="sub">Para a SBN retornar o seu contato.</p>
+        <div class="field"><label for="f-nome">Nome</label><input class="input" id="f-nome" name="nome" autocomplete="name" required><span class="err" id="e-nome"></span></div>
+        <div class="row2">
+          <div class="field"><label for="f-tel">WhatsApp</label><input class="input" id="f-tel" name="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" required><span class="err" id="e-tel"></span></div>
+          <div class="field"><label for="f-local">Cidade / bairro da obra</label><input class="input" id="f-local" name="local" autocomplete="address-level2" required><span class="err" id="e-local"></span></div>
+        </div>
+      </div>
+
+      <div class="fpanel" data-step="1" hidden>
+        <h3>Qual serviço você precisa?</h3>
+        <p class="sub">Pode marcar mais de um.</p>
+        <div class="chips" role="group" aria-label="Serviços">
+          <label class="chip"><input type="checkbox" name="svc" value="Terraplanagem" id="s1"><span>Terraplanagem</span></label>
+          <label class="chip"><input type="checkbox" name="svc" value="Escavação" id="s2"><span>Escavação</span></label>
+          <label class="chip"><input type="checkbox" name="svc" value="Aterro e nivelamento" id="s3"><span>Aterro e nivelamento</span></label>
+          <label class="chip"><input type="checkbox" name="svc" value="Limpeza de terreno" id="s4"><span>Limpeza de terreno</span></label>
+          <label class="chip"><input type="checkbox" name="svc" value="Demolição" id="s5"><span>Demolição</span></label>
+          <label class="chip"><input type="checkbox" name="svc" value="Áreas e vias" id="s6"><span>Áreas e vias</span></label>
+        </div>
+        <span class="err" id="e-svc"></span>
+      </div>
+
+      <div class="fpanel" data-step="2" hidden>
+        <h3>Conte os detalhes.</h3>
+        <p class="sub">Quanto mais informação, mais rápido o retorno.</p>
+        <div class="field"><span class="lbl" id="l-area">Tamanho aproximado do terreno</span>
+          <div class="seg" role="radiogroup" aria-labelledby="l-area">
+            <label class="chip"><input type="radio" name="area" value="Até 300 m²" id="a1"><span>Até 300 m²</span></label>
+            <label class="chip"><input type="radio" name="area" value="300 a 1.000 m²" id="a2"><span>300 a 1.000 m²</span></label>
+            <label class="chip"><input type="radio" name="area" value="1.000 a 5.000 m²" id="a3"><span>1.000 a 5.000 m²</span></label>
+            <label class="chip"><input type="radio" name="area" value="Acima de 5.000 m²" id="a4"><span>Acima de 5.000 m²</span></label>
+            <label class="chip"><input type="radio" name="area" value="Não sei" id="a5"><span>Não sei</span></label>
+          </div>
+        </div>
+        <div class="field"><span class="lbl" id="l-prazo">Quando pretende começar?</span>
+          <div class="seg" role="radiogroup" aria-labelledby="l-prazo">
+            <label class="chip"><input type="radio" name="prazo" value="O quanto antes" id="p1"><span>O quanto antes</span></label>
+            <label class="chip"><input type="radio" name="prazo" value="Próximos 30 dias" id="p2"><span>Próximos 30 dias</span></label>
+            <label class="chip"><input type="radio" name="prazo" value="Em 1 a 3 meses" id="p3"><span>Em 1 a 3 meses</span></label>
+            <label class="chip"><input type="radio" name="prazo" value="Ainda estou planejando" id="p4"><span>Ainda planejando</span></label>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Descreva o terreno <small>(opcional)</small></label><textarea class="input" id="f-msg" name="msg" placeholder="Ex.: terreno com mato e desnível de cerca de 1 metro, preciso nivelar para construir uma casa."></textarea></div>
+      </div>
+
+      <div class="fpanel" data-step="3" hidden>
+        <h3>Confira e envie.</h3>
+        <p class="sub">Ao enviar, o WhatsApp abre com a mensagem pronta.</p>
+        <dl class="review" id="review"></dl>
+      </div>
+
+      <div class="fnav">
+        <button class="btn btn--ghost back" type="button" id="fBack" hidden aria-label="Voltar"><svg style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+        <button class="btn" type="submit" id="fNext">Continuar <svg class="arrow"><use href="#i-arrow"/></svg></button>
+      </div>
+      <p class="fnote" id="fNote" hidden>Se o WhatsApp não abrir, fale direto pelo número (11) 99816-1480.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div>
+        <a class="brand" href="#inicio" aria-label="SBN Terraplanagem — voltar ao início">
+          <img class="brand__logo" src="https://sbnterraplanagem.lovable.app/assets/logo-sbn-AhWElN_m.jpg" alt="Logo SBN Terraplanagem" width="44" height="44" loading="lazy" onerror="this.closest('.brand').classList.add('no-logo')">
+          <span class="brand__mark" aria-hidden="true">SBN</span>
+          <span class="brand__txt"><b>SBN</b><span>Terraplanagem</span></span>
+        </a>
+        <p class="ftr__tag">Terraplanagem e preparação de terrenos.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#trabalhos">Trabalhos</a></li>
+          <li><a href="#equipamentos">Equipamentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a class="wa-link" href="https://wa.me/5511998161480" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg> WhatsApp (11) 99816-1480</a></li>
+          <li><a href="https://www.instagram.com/sbn_terraplanagem/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg> Instagram @sbn_terraplanagem</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__base">
+      <span>© <span id="yr">2026</span> SBN Terraplanagem</span>
+      <a href="#inicio">Voltar ao topo <svg width="16" height="16" style="transform:rotate(180deg)"><use href="#i-down"/></svg></a>
+    </div>
+    <p class="credits">Fotos ilustrativas: Rodolfo Gaion, Melquizedeque Almeida, Matheus Amaral, Gezer Amorim e Pixabay via Pexels.</p>
+  </div>
+</footer>
+
+<a class="fab wa-link" id="fab" href="https://wa.me/5511998161480" target="_blank" rel="noopener" aria-label="Falar com a SBN no WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada" aria-hidden="true">
+  <button class="x" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="pv" type="button" aria-label="Foto anterior"><svg style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="nx" type="button" aria-label="Próxima foto"><svg><use href="#i-arrow"/></svg></button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+  var doc=document.documentElement;
+  doc.classList.add("js");
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var WA="5511998161480";
+  var WA_MSG="Olá, SBN Terraplanagem! Gostaria de falar sobre a preparação de um terreno.";
+  var waURL=function(t){return "https://wa.me/"+WA+"?text="+encodeURIComponent(t)};
+  document.querySelectorAll(".wa-link").forEach(function(a){a.href=waURL(WA_MSG)});
+  var yr=document.getElementById("yr"); if(yr) yr.textContent=new Date().getFullYear();
+
+  /* hero: entrada */
+  var heroImg=document.querySelector(".hero__media img");
+  var markLoaded=function(){document.querySelector(".hero").classList.add("is-loaded")};
+  if(heroImg.complete) requestAnimationFrame(markLoaded); else {heroImg.addEventListener("load",markLoaded);heroImg.addEventListener("error",markLoaded)}
+  setTimeout(markLoaded,1200);
+
+  /* reveal */
+  var rvs=document.querySelectorAll(".rv");
+  if(reduce||!("IntersectionObserver" in window)){rvs.forEach(function(el){el.classList.add("in")})}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -8% 0px"});
+    rvs.forEach(function(el){io.observe(el)});
+    document.querySelectorAll(".hero .rv").forEach(function(el){requestAnimationFrame(function(){el.classList.add("in")})});
+  }
+
+  /* header, progresso, fab */
+  var hdr=document.querySelector(".hdr"), prog=document.querySelector(".progress"), fab=document.getElementById("fab");
+  var contato=document.getElementById("contato"), hero=document.getElementById("inicio");
+  var contactVisible=false;
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){contactVisible=es[0].isIntersecting;onScroll()},{threshold:.15}).observe(contato);
+  }
+  function onScroll(){
+    var y=window.scrollY, h=doc.scrollHeight-window.innerHeight;
+    hdr.classList.toggle("is-solid",y>24);
+    prog.style.transform="scaleX("+(h>0?Math.min(1,y/h):0)+")";
+    fab.classList.toggle("is-on",y>hero.offsetHeight*.7&&!contactVisible&&!document.body.classList.contains("menu-open"));
+    tfUpdate();
+  }
+
+  /* scroll-spy */
+  var links=document.querySelectorAll(".nav a[data-spy]");
+  if("IntersectionObserver" in window){
+    var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle("is-active",l.dataset.spy===e.target.id)})}})},{rootMargin:"-45% 0px -50% 0px"});
+    ["inicio","servicos","trabalhos","equipamentos","contato"].forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s)});
+  }
+
+  /* menu mobile */
+  var burger=document.querySelector(".burger"), mnav=document.getElementById("mnav");
+  function setMenu(open){
+    burger.setAttribute("aria-expanded",open);burger.setAttribute("aria-label",open?"Fechar menu":"Abrir menu");
+    mnav.classList.toggle("is-open",open);mnav.setAttribute("aria-hidden",!open);
+    document.body.classList.toggle("menu-open",open);
+    if(open){hdr.classList.add("is-solid");var f=mnav.querySelector("a");setTimeout(function(){f&&f.focus()},200)}
+    onScroll();
+  }
+  burger.addEventListener("click",function(){setMenu(burger.getAttribute("aria-expanded")!=="true")});
+  mnav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){setMenu(false)})});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&mnav.classList.contains("is-open")){setMenu(false);burger.focus()}});
+  window.addEventListener("resize",function(){if(window.innerWidth>=1000&&mnav.classList.contains("is-open"))setMenu(false)});
+
+  /* ===== Transformação: cena com perfil do terreno ===== */
+  var tf=document.querySelector(".tf"), track=tf.querySelector(".tf__track"), stages=tf.querySelectorAll(".stage");
+  var stepLis=tf.querySelectorAll(".tf__steps li"), bars=tf.querySelectorAll(".tf__steps .bar i");
+  var line=document.getElementById("tfLine"), fill=document.getElementById("tfFill"), cota=document.getElementById("tfCota");
+  var scene=!reduce;
+  var N=64, base=110, noise=[];
+  for(var i=0;i<=N;i++){var x=i/N;noise.push(Math.sin(x*9.1)*.55+Math.sin(x*23.7+1.3)*.28+Math.sin(x*51+.4)*.17+Math.sin(x*3.2+2)*.45)}
+  function profile(flat){
+    var amp=62*(1-flat), d="";
+    for(var i=0;i<=N;i++){var X=(i/N*1000).toFixed(1), Y=(base-noise[i]*amp).toFixed(1); d+=(i?" L":"M")+X+" "+Y}
+    line.setAttribute("d",d); fill.setAttribute("d",d+" L1000 200 L0 200 Z");
+    cota.style.opacity=flat>.85?1:.35+flat*.4;
+  }
+  var cur=-1;
+  function setStage(s){
+    if(s===cur)return;cur=s;
+    stages.forEach(function(st,i){st.classList.toggle("is-active",i===s)});
+    stepLis.forEach(function(li,i){li.classList.toggle("is-active",i===s);li.classList.toggle("is-done",i<s)});
+  }
+  if(scene){tf.classList.add("is-scene");tf.style.setProperty("--n",3);profile(0)}
+  function tfUpdate(){
+    if(!scene)return;
+    var r=track.getBoundingClientRect(), span=r.height-window.innerHeight;
+    var p=span>0?Math.min(1,Math.max(0,-r.top/span)):0;
+    var s=p<1/3?0:(p<2/3?1:2);
+    setStage(s);
+    bars.forEach(function(b,i){var v=Math.min(1,Math.max(0,p*3-i));b.style.transform="scaleX("+v+")"});
+    profile(Math.min(1,Math.max(0,(p-.12)/.66)));
+  }
+
+  var ticking=false;
+  window.addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(function(){onScroll();ticking=false})}},{passive:true});
+  window.addEventListener("resize",onScroll);
+  onScroll();
+
+  /* ===== Carrossel da frota (mobile) ===== */
+  var row=document.getElementById("fleetRow"), dotsWrap=document.getElementById("fleetDots"), cards=row.querySelectorAll(".fcard");
+  cards.forEach(function(c,i){var b=document.createElement("button");b.type="button";b.setAttribute("aria-label","Equipamento "+(i+1));b.addEventListener("click",function(){row.scrollTo({left:c.offsetLeft-row.offsetLeft-parseFloat(getComputedStyle(row).paddingLeft),behavior:reduce?"auto":"smooth"})});dotsWrap.appendChild(b)});
+  function dotUpdate(){var best=0,bd=1e9;cards.forEach(function(c,i){var d=Math.abs(c.getBoundingClientRect().left-row.getBoundingClientRect().left);if(d<bd){bd=d;best=i}});dotsWrap.querySelectorAll("button").forEach(function(b,i){b.setAttribute("aria-current",i===best)})}
+  row.addEventListener("scroll",function(){requestAnimationFrame(dotUpdate)},{passive:true});dotUpdate();
+
+  /* ===== Lightbox ===== */
+  var lb=document.getElementById("lb"), lbImg=document.getElementById("lbImg"), lbCap=document.getElementById("lbCap");
+  var figs=[].slice.call(document.querySelectorAll(".obra-grid .ph")), idx=0, lastFocus=null;
+  function show(i){var f=figs.filter(function(x){return !x.classList.contains("is-broken")});if(!f.length)return;idx=(i+f.length)%f.length;var im=f[idx].querySelector("img");lbImg.src=im.currentSrc||im.src;lbImg.alt=im.alt;lbCap.textContent=f[idx].querySelector("figcaption").lastChild.textContent.trim()}
+  function openLb(fig){lastFocus=document.activeElement;var f=figs.filter(function(x){return !x.classList.contains("is-broken")});show(f.indexOf(fig));lb.classList.add("is-open");lb.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";lb.querySelector(".x").focus()}
+  function closeLb(){lb.classList.remove("is-open");lb.setAttribute("aria-hidden","true");document.body.style.overflow="";lastFocus&&lastFocus.focus()}
+  figs.forEach(function(f){f.addEventListener("click",function(){openLb(f)});f.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();openLb(f)}})});
+  lb.querySelector(".x").addEventListener("click",closeLb);
+  lb.querySelector(".pv").addEventListener("click",function(e){e.stopPropagation();show(idx-1)});
+  lb.querySelector(".nx").addEventListener("click",function(e){e.stopPropagation();show(idx+1)});
+  lb.addEventListener("click",function(e){if(e.target===lb)closeLb()});
+  document.addEventListener("keydown",function(e){if(!lb.classList.contains("is-open"))return;if(e.key==="Escape")closeLb();if(e.key==="ArrowLeft")show(idx-1);if(e.key==="ArrowRight")show(idx+1)});
+  var tx=null;lb.addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener("touchend",function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(idx+(dx<0?1:-1));tx=null});
+
+  /* ===== Copiar número ===== */
+  var toast=document.getElementById("toast"), tt;
+  function say(m){toast.textContent=m;toast.classList.add("is-on");clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("is-on")},2200)}
+  document.getElementById("copyPhone").addEventListener("click",function(){
+    var t="(11) 99816-1480";
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){say("Número copiado")},function(){sel()})}else sel();
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById("phoneTxt"));var s=getSelection();s.removeAllRanges();s.addRange(r);say("Número selecionado — copie com Ctrl+C")}
+  });
+
+  /* ===== Formulário em 4 etapas ===== */
+  var form=document.getElementById("quote"), panels=form.querySelectorAll(".fpanel"), fsteps=form.querySelectorAll(".fsteps li");
+  var next=document.getElementById("fNext"), back=document.getElementById("fBack"), label=document.getElementById("stepLabel"), note=document.getElementById("fNote");
+  var step=0, nextHTML=next.innerHTML;
+  var tel=document.getElementById("f-tel");
+  tel.addEventListener("input",function(){
+    var d=tel.value.replace(/\D/g,"").slice(0,11), o=d;
+    if(d.length>2) o="("+d.slice(0,2)+") "+d.slice(2);
+    if(d.length>7) o="("+d.slice(0,2)+") "+d.slice(2,d.length-4)+"-"+d.slice(d.length-4);
+    tel.value=o;
+  });
+  function err(id,msg,el){var e=document.getElementById(id);e.textContent=msg||"";if(el)el.setAttribute("aria-invalid",msg?"true":"false");return !msg}
+  function val(n){var el=form.elements[n];return el?String(el.value||"").trim():""}
+  function checked(n){return [].slice.call(form.querySelectorAll('input[name="'+n+'"]:checked')).map(function(i){return i.value})}
+  function validate(s){
+    if(s===0){
+      var ok=true;
+      ok=err("e-nome",val("nome").length<2?"Informe o seu nome.":"",form.elements.nome)&&ok;
+      ok=err("e-tel",val("tel").replace(/\D/g,"").length<10?"Informe um WhatsApp com DDD.":"",tel)&&ok;
+      ok=err("e-local",val("local").length<2?"Informe a cidade ou bairro da obra.":"",form.elements.local)&&ok;
+      if(!ok){var f=form.querySelector('[aria-invalid="true"]');f&&f.focus()}
+      return ok;
+    }
+    if(s===1){return err("e-svc",checked("svc").length?"":"Escolha pelo menos um serviço.")}
+    return true;
+  }
+  function data(){return [
+    ["Nome",val("nome")],["WhatsApp",val("tel")],["Local da obra",val("local")],
+    ["Serviços",checked("svc").join(", ")],["Tamanho do terreno",checked("area")[0]||"Não informado"],
+    ["Prazo",checked("prazo")[0]||"Não informado"],["Detalhes",val("msg")||"—"]]}
+  function render(dir){
+    panels.forEach(function(p,i){p.hidden=i!==step;if(i===step)p.setAttribute("data-dir",dir||"fwd")});
+    fsteps.forEach(function(li,i){li.classList.toggle("is-done",i<step);li.classList.toggle("is-current",i===step)});
+    label.textContent="Etapa "+(step+1)+" de 4";
+    back.hidden=step===0;
+    if(step===3){
+      var dl=document.getElementById("review");dl.innerHTML="";
+      data().forEach(function(r){var d=document.createElement("div"),dt=document.createElement("dt"),dd=document.createElement("dd");dt.textContent=r[0];dd.textContent=r[1];d.appendChild(dt);d.appendChild(dd);dl.appendChild(d)});
+      next.innerHTML='<svg><use href="#i-wa"/></svg> Enviar pelo WhatsApp';next.classList.add("btn--whats");
+    } else {next.innerHTML=nextHTML;next.classList.remove("btn--whats")}
+  }
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(!validate(step))return;
+    if(step<3){step++;render("fwd");if(window.innerWidth<1000)form.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});var first=panels[step].querySelector("input,textarea");first&&setTimeout(function(){first.focus({preventScroll:true})},60);return}
+    var msg="Olá, SBN Terraplanagem! Gostaria de solicitar um atendimento.\n\n"+data().map(function(r){return "*"+r[0]+":* "+r[1]}).join("\n");
+    window.open(waURL(msg),"_blank","noopener");
+    note.hidden=false;say("Abrindo o WhatsApp…");
+  });
+  back.addEventListener("click",function(){if(step>0){step--;render("back")}});
+  form.addEventListener("change",function(e){if(e.target.name==="svc")err("e-svc","")});
+})();
+</script>
+</body>
+</html>
